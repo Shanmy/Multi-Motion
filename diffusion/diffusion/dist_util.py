@@ -109,9 +109,9 @@ def _setup(
     out_folder_list=('checkpoints', 'viz', 'log', 'code'),
 ):
     # make directory for saving results
-    os.makedirs(exp_dir)
+    os.makedirs(exp_dir, exist_ok=True)
     for folder in list(out_folder_list):
-        os.makedirs(os.path.join(exp_dir, folder))
+        os.makedirs(os.path.join(exp_dir, folder), exist_ok=True)
 
     # save invidual exec files (python exec file, config file)
     for file_name in exec_files:

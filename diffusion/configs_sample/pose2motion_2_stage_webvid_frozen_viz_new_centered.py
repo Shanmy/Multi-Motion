@@ -41,6 +41,7 @@ config = dict(
         mean_path=None,
         std_path=None,
         trans_aug_rad=None,
+        shuffle=0,
     ),
     num_sample_frames=61,
 

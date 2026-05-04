@@ -4,7 +4,10 @@
       "WebFetch(domain:shanmy.github.io)",
       "Bash(python3 -c ' *)",
       "Bash(python3 -c \"from pose_datasets.amass_loader import AmassDataset\")",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Bash(python3 -c \"import sys; sys.path.insert\\(0, '.'\\); from configs_train.multi_pose import config; print\\('OK'\\)\")",
+      "Bash(python3 -c \"from configs_train.multi_pose import config; print\\('OK'\\)\")",
+      "Bash(grep -n \"return pose\\\\|return$\\\\|^    return\" /Users/shanmy/Desktop/MM/code/diffusion/evaluations/fid.py)"
     ]
   }
 }

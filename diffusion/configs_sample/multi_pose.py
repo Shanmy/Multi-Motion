@@ -26,6 +26,7 @@ config = dict(
         normalize=False,
         mean_path=None,
         std_path=None,
+        shuffle=0,
     ),
 
     # model args

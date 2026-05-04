@@ -85,7 +85,7 @@ def get_denoised_fn(cond_model_dict, model_denoised_fn, pose_guidance_frameskip=
             cond_model_dict['motion_cond_model_coef'] > 0
         ):
             # condition score from  text conditional single-person motion model
-            x_motion_cond = full_to_pose(x)
+            x_motion_cond = full_to_motion(x)
             t_motion_cond, cond_motion_cond = \
                 prepare_motion_conds(t, cond, x.shape[2], uncond_motion=False)
             out_motion_cond = cond_model_dict['motion_cond_model'](

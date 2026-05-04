@@ -37,6 +37,7 @@ config = dict(
         mean_path=None,
         std_path=None,
         trans_aug_rad=None,
+        shuffle=2000,
     ),
     viz_gt=True,
     viz_frameskip=10,  # otherwise motion viz takes forever...

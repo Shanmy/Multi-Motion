@@ -5,6 +5,7 @@ Helpers for distributed training.
 import os
 import argparse
 import importlib
+import tempfile
 from datetime import datetime, timedelta
 from pkgutil import iter_modules
 
@@ -205,7 +206,9 @@ def save_text_prompts_across_gpus(text_prompts_file, text_prompts):
 
 
 def gather_text_prompts_on_master(text_prompts):
-    gather_file = 'gather.txt'
+    # Derive a run-unique name from the distributed env so concurrent jobs don't collide.
+    run_tag = f"{os.environ.get('MASTER_ADDR', 'local')}_{os.environ.get('MASTER_PORT', '0')}".replace('.', '_')
+    gather_file = os.path.join(tempfile.gettempdir(), f'gather_{run_tag}.txt')
     if dist.get_rank() == 0:
         if os.path.isfile(gather_file):
             os.remove(gather_file)

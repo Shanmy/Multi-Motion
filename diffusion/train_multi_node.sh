@@ -25,7 +25,7 @@ export NCCL_IB_GID_INDEX
 torchrun \
     --nnodes=$NNODES \
     --master_addr=$MASTER_ADDR \
-    --master_port=29500 \
+    --master_port=$PORT \
     --node_rank=$NODE_RANK \
     --nproc_per_node=$GPUS \
     base_train.py \

@@ -7,7 +7,7 @@ import pickle as pkl
 
 from torch.utils.data import Dataset
 
-from data_utils import (
+from pose_datasets.data_utils import (
     convert_smpl_to_6d,
     process_translations,
     get_pose_pad,

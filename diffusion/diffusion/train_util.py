@@ -319,6 +319,8 @@ class TrainLoop:
                 unsqueeze_pose_dim=unsqueeze_pose_dim,
                 unsqueeze_motion_dim=unsqueeze_motion_dim,
                 frameskip=self.viz_frameskip,
+                mean_path=self.mean_path,
+                std_path=self.std_path,
             )
 
     def save(self):

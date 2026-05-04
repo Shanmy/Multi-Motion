@@ -14,7 +14,7 @@ from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 
 from viz.viz_utils import viz_from_loader
-from data_utils import (
+from pose_datasets.data_utils import (
     align_laion_pose,
     convert_smpl_to_6d,
     process_translations,

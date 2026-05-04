@@ -1,10 +1,10 @@
 import torch
 
-from amass_loader import AmassDataset, AmassCompDataset
-from laion_pose_loader import LaionPose
-from interhuman_loader import InterHumanDataset
-from webvid_motion_loader import WebVidMotionDataset
-from data_utils import make_dataloader, get_pose_pad_batch
+from pose_datasets.amass_loader import AmassDataset, AmassCompDataset
+from pose_datasets.laion_pose_loader import LaionPose
+from pose_datasets.interhuman_loader import InterHumanDataset
+from pose_datasets.webvid_motion_loader import WebVidMotionDataset
+from pose_datasets.data_utils import make_dataloader, get_pose_pad_batch
 
 
 class JointMotionPose:

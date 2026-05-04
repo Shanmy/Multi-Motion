@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:shanmy.github.io)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"from pose_datasets.amass_loader import AmassDataset\")",
+      "Bash(python3)"
     ]
   }
 }

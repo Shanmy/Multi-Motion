@@ -7,7 +7,7 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 
-from data_utils import (
+from pose_datasets.data_utils import (
     list_files_recursively,
     make_dataloader,
     process_translations,

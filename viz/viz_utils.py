@@ -1,5 +1,6 @@
 import os
 import shutil
+import pathlib
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,7 +10,7 @@ from textwrap import wrap
 import trimesh
 from trimesh import Trimesh
 
-from mp4_to_gif import convertFile
+from viz.mp4_to_gif import convertFile
 import torch
 
 from smpl.smpl import SMPLA_parser
@@ -19,7 +20,9 @@ from glob import glob
 
 from scipy.ndimage import gaussian_filter1d
 
-def get_trimesh(vertices, smpl_faces_file='/home/s9053168/code/multi-pose-diffusion/smpl/smpl_faces.npy'):
+_DEFAULT_SMPL_FACES = str(pathlib.Path(__file__).parent.parent / 'smpl' / 'smpl_faces.npy')
+
+def get_trimesh(vertices, smpl_faces_file=_DEFAULT_SMPL_FACES):
     faces = np.load(smpl_faces_file)
     return Trimesh(vertices=vertices.tolist(), faces=faces)
 

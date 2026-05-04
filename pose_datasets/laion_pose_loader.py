@@ -8,8 +8,8 @@ from torch.utils.data import DataLoader
 
 import webdataset as wds
 
-from clip_tokenizer import tokenize as clip_tokenizer
-from data_utils import (
+from pose_datasets.clip_tokenizer import tokenize as clip_tokenizer
+from pose_datasets.data_utils import (
     get_pose_from_smpl_params,
     make_shorter_instruct_blip_text,
     get_pose_pad,

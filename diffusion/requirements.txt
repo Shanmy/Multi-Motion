@@ -1,0 +1,10 @@
+# Diffusion-module extras (install after root requirements.txt)
+#   pip install -r diffusion/requirements.txt
+
+# Evaluation (FID)
+scipy
+
+# Transformer internals
+einops
+einops_exts
+rotary-embedding-torch

@@ -1,0 +1,61 @@
+#FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
+FROM pytorch/pytorch:1.13.0-cuda11.6-cudnn8-devel
+
+ENV http_proxy=http://172.24.209.222:2222
+ENV https_proxy=http://172.24.209.222:2222
+ENV no_proxy=localhost,127.0.0.1
+
+# user and group args
+ARG USERNAME='us000240'
+# get the ids below by running command "echo $(id -u)" and "echo $(id -G)"
+ARG UID=1000240
+ARG GID=10000
+ARG USRCSEAGID=11004
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN groupadd -g $GID g_base
+RUN groupadd -g $USRCSEAGID g_usrcsea
+RUN useradd -rm -d /home/$USERNAME -s /bin/bash -u $UID -g $GID -g $USRCSEAGID -G root,sudo $USERNAME
+
+# To fix GPG key error when running apt-get update (needed for pytorch 2.0.1)
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/7fa2af80.pub
+
+# command line tools
+RUN apt-get update
+RUN apt-get install -y tmux net-tools git wget
+RUN apt-get install -y sudo tar make
+RUN apt-get install -y nasm libx264-dev libx265-dev libnuma-dev libvpx-dev libfdk-aac-dev libopus-dev libunistring-dev
+RUN apt-get install -y libgnutls28-dev
+RUN apt-get install -y autoconf \
+  automake \
+  build-essential \
+  cmake \
+  git-core \
+  libass-dev \
+  libfreetype6-dev \
+  libgnutls28-dev \
+  libmp3lame-dev \
+  libsdl2-dev \
+  libtool \
+  libva-dev \
+  libvdpau-dev \
+  libvorbis-dev \
+  libxcb1-dev \
+  libxcb-shm0-dev \
+  libxcb-xfixes0-dev \
+  meson \
+  ninja-build \
+  pkg-config \
+  texinfo \
+  wget \
+  yasm \
+  zlib1g-dev
+RUN apt-get remove -y ffmpeg
+
+# run this for global pip install inside container (otherwise will install in user dir and cause leakage)
+RUN chmod -R 777 /opt
+
+# workdir and port
+WORKDIR /home/$USERNAME
+EXPOSE 22

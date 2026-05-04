@@ -1,0 +1,49 @@
+# Install shared packages in editable mode from root:
+#   pip install -e .
+#
+# Then install diffusion-specific extras:
+#   pip install -r diffusion/requirements.txt
+#
+# External dependencies that must be installed manually
+# (see data_collection/README.md for details):
+#   CLIP:        pip install git+https://github.com/openai/CLIP.git
+#   detectron2:  see https://detectron2.readthedocs.io/en/latest/tutorials/install.html
+#   chamfer_distance: pip install git+https://github.com/krrish94/chamfer_distance.git
+
+# Core
+torch>=2.0
+torchvision
+numpy
+scipy
+
+# Config / utilities
+omegaconf
+tqdm
+pandas
+
+# Vision / data
+Pillow
+opencv-python-headless
+imageio
+imageio-ffmpeg
+
+# CLIP text conditioning
+ftfy
+regex
+
+# Dataset streaming (LAION / WebVid loaders)
+webdataset
+braceexpand
+
+# SMPL / mesh
+trimesh
+smplx
+chumpy
+
+# Diffusion model internals
+einops
+rotary-embedding-torch
+
+# Evaluation
+scikit-learn
+matplotlib

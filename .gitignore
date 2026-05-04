@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# OS
+.DS_Store
+.nfs*
+
+# Outputs / experiments
+out_image_test/
+out_image_test_single/
+out_video_test/
+out_video_test_single/
+out_sr_test_single/
+out_viz_bev/
+out_laion_viz/
+out_laion_ref_viz/
+out_logs/
+out_corrector/
+out_amass_viz/
+out_gta_viz/
+out_joint_viz/
+out_interhuman_viz/
+stats_test/
+tmp/
+*.log
+diffusion-v2/
+pose_datasets/out_webvid_viz/
+pose_datasets/trace_viz/
+diffusion/configs_train_aux/
+
+# Dataset / video artifacts
+video_datasets/mpii_test.*
+video_datasets/mpii_human_pose_clips/
+data_collection/out_clip_sorting_viz/

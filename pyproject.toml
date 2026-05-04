@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "multi-motion"
+version = "0.1.0"
+description = "Multi-Person Human Motion Diffusion Model (ECCV 2024)"
+requires-python = ">=3.9"
+dependencies = [
+    # Core ML
+    "torch>=2.0",
+    "torchvision",
+    "numpy",
+    "scipy",
+
+    # Config / utilities
+    "omegaconf",
+    "tqdm",
+    "pandas",
+
+    # Vision / data
+    "Pillow",
+    "opencv-python-headless",
+    "imageio",
+    "imageio-ffmpeg",
+
+    # CLIP (text conditioning)
+    "ftfy",
+    "regex",
+
+    # Dataset streaming
+    "webdataset",
+    "braceexpand",
+
+    # SMPL / mesh
+    "trimesh",
+    "smplx",
+    "chumpy",
+
+    # Diffusion model internals
+    "einops",
+    "rotary-embedding-torch",
+
+    # Evaluation
+    "scikit-learn",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "pose_datasets*",
+    "viz*",
+    "smpl*",
+    "pose_corrector*",
+    "video_datasets*",
+    "data_collection*",
+]
+exclude = [
+    "diffusion*",
+    "*__pycache__*",
+    "*.egg-info*",
+]

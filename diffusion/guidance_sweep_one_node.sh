@@ -3,11 +3,14 @@ CONFIG=${2:-"configs_sample/default_config.py"}
 NNODES=1
 NODE_RANK=0
 MASTER_ADDR="127.0.0.1"
+PORT=${PORT:-29500}
+
+export PYTHONPATH=..:$PYTHONPATH
 
 torchrun \
     --nnodes=$NNODES \
     --master_addr=$MASTER_ADDR \
-    --master_port=29500 \
+    --master_port=$PORT \
     --node_rank=$NODE_RANK \
     --nproc_per_node=$GPUS \
     guidance_sweep_sample.py \

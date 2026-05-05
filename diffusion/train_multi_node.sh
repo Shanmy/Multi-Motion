@@ -20,6 +20,7 @@ export OMPI_MCA_btl_tcp_if_include
 export NCCL_SOCKET_IFNAME
 export NCCL_IB_DISABLE
 export NCCL_IB_GID_INDEX
+export PYTHONPATH=..:$PYTHONPATH
 
 
 torchrun \
